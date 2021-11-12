@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mynginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: mynginx
+  template:
+    metadata:
+      labels:
+        run: mynginx
+    spec:
+      containers:
+      - image: kikikiky/users-img
+        name: mynginx
+        ports:
+        - containerPort: 80
